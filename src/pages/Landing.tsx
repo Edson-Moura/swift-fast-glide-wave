@@ -59,52 +59,77 @@ const Landing = () => {
   const plans = [
     {
       name: "Básico",
-      price: "R$ 97",
+      price: "R$ 49",
       period: "/mês",
-      description: "Perfeito para restaurantes pequenos",
+      description: "Para restaurantes pequenos",
       icon: Star,
       features: [
-        "Até 50 produtos no estoque",
-        "Cardápio com até 30 pratos",
-        "1 usuário administrador",
+        "Até 1 restaurante",
+        "Até 5 usuários",
+        "Gestão completa de estoque",
+        "Cardápio completo",
         "Relatórios básicos",
-        "Suporte por email"
+        "Suporte prioritário"
       ],
       highlight: false
     },
     {
       name: "Profissional",
-      price: "R$ 197",
+      price: "R$ 99",
       period: "/mês",
-      description: "Ideal para restaurantes em crescimento",
+      description: "Para restaurantes em crescimento",
       icon: Crown,
       features: [
-        "Produtos ilimitados no estoque",
-        "Cardápio ilimitado",
-        "Até 10 usuários",
+        "Até 1 restaurante",
+        "Usuários ilimitados",
+        "Gestão avançada de estoque",
+        "Cardápio e preços inteligentes",
         "Relatórios avançados",
-        "Integração com fornecedores",
-        "Suporte prioritário",
-        "Backup automático"
+        "Gestão de fornecedores",
+        "Suporte 24/7"
       ],
       highlight: true
     },
     {
       name: "Enterprise",
-      price: "R$ 397",
+      price: "R$ 199",
       period: "/mês",
       description: "Para redes de restaurantes",
       icon: Building,
       features: [
-        "Tudo do plano Profissional",
+        "Restaurantes ilimitados",
         "Usuários ilimitados",
-        "Múltiplas unidades",
+        "Gestão de rede centralizada",
         "Relatórios consolidados",
         "API personalizada",
-        "Suporte dedicado 24/7",
-        "Consultoria estratégica"
+        "Suporte dedicado",
+        "Treinamento incluído"
       ],
       highlight: false
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Maria Silva",
+      role: "Proprietária",
+      restaurant: "Cantina da Maria",
+      content: "Desde que implementamos o RestaurantApp, conseguimos reduzir o desperdício em 40% e nossos custos ficaram muito mais previsíveis. A gestão de estoque é fantástica!",
+      rating: 5
+    },
+    {
+      name: "João Santos",
+      role: "Chef Executivo", 
+      restaurant: "Bistrô do Chef",
+      content: "A funcionalidade de cálculo automático de custos dos pratos me poupa horas de trabalho toda semana. Agora posso focar no que realmente importa: criar pratos incríveis.",
+      rating: 5
+    },
+    {
+      name: "Ana Costa",
+      role: "Gerente",
+      restaurant: "Rede Sabor & Cia",
+      content: "Gerenciar 5 restaurantes ficou muito mais fácil com os relatórios consolidados. Tenho visibilidade completa do negócio em tempo real.",
+      rating: 5
     }
   ];
 
@@ -351,6 +376,50 @@ const Landing = () => {
             <p className="text-sm text-muted-foreground">
               Cancele a qualquer momento. Sem taxas ocultas.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-muted/50">
+        <div className="container-mobile mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              O que nossos clientes dizem
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Mais de 10.000 restaurantes confiam no RestaurantApp para otimizar sua gestão
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
+                <CardHeader>
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <ChefHat className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                      <CardDescription>
+                        {testimonial.role} • {testimonial.restaurant}
+                      </CardDescription>
+                    </div>
+                  </div>
+                  <div className="flex space-x-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

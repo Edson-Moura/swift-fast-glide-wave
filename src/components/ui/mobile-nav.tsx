@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Menu, X, Home, BarChart3, Settings, LogOut, ChefHat, DollarSign, Building2, MenuIcon } from 'lucide-react';
+import { Menu, X, Home, BarChart3, Settings, LogOut, ChefHat, DollarSign, Building2, MenuIcon, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
@@ -62,6 +62,12 @@ const MobileNav = () => {
       label: 'Inventário',
       path: '/inventory-management',
       show: ['admin', 'manager', 'inventory'].includes(userRole || '')
+    },
+    {
+      icon: Trash2,
+      label: 'Desperdício',
+      path: '/waste-management',
+      show: ['admin', 'manager', 'inventory', 'chef'].includes(userRole || '')
     },
     {
       icon: Building2,

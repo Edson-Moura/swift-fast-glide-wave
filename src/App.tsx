@@ -12,6 +12,7 @@ import PriceManagement from "./pages/PriceManagement";
 import SupplierManagement from "./pages/SupplierManagement";
 import InventoryManagement from "./pages/InventoryManagement";
 import MenuManagement from "./pages/MenuManagement";
+import WasteManagement from "./pages/WasteManagement";
 import ChainManagement from "./pages/ChainManagement";
 import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/chain-management" element={<ChainManagement />} />
           <Route path="/inventory-management" element={<InventoryManagement />} />
           <Route path="/menu-management" element={<MenuManagement />} />
+          <Route path="/waste-management" element={<WasteManagement />} />
           <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

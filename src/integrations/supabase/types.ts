@@ -995,6 +995,54 @@ export type Database = {
         }
         Relationships: []
       }
+      waste_tracking: {
+        Row: {
+          cost_impact: number
+          created_at: string
+          id: string
+          inventory_item_id: string
+          notes: string | null
+          quantity_wasted: number
+          registered_by: string
+          restaurant_id: string
+          unit: string
+          updated_at: string
+          waste_category: string
+          waste_date: string
+          waste_reason: string
+        }
+        Insert: {
+          cost_impact?: number
+          created_at?: string
+          id?: string
+          inventory_item_id: string
+          notes?: string | null
+          quantity_wasted?: number
+          registered_by: string
+          restaurant_id: string
+          unit: string
+          updated_at?: string
+          waste_category?: string
+          waste_date?: string
+          waste_reason: string
+        }
+        Update: {
+          cost_impact?: number
+          created_at?: string
+          id?: string
+          inventory_item_id?: string
+          notes?: string | null
+          quantity_wasted?: number
+          registered_by?: string
+          restaurant_id?: string
+          unit?: string
+          updated_at?: string
+          waste_category?: string
+          waste_date?: string
+          waste_reason?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -1037,6 +1085,15 @@ export type Database = {
         Args: { restaurant_id_param: string }
         Returns: undefined
       }
+      generate_waste_reduction_suggestions: {
+        Args: { restaurant_id_param: string }
+        Returns: {
+          estimated_savings: number
+          message: string
+          priority: string
+          suggestion_type: string
+        }[]
+      }
       get_chain_consolidated_inventory: {
         Args: { chain_id_param: string }
         Returns: {
@@ -1069,6 +1126,22 @@ export type Database = {
           restaurant_name: string
           total_menu_items: number
           unavailable_items: number
+        }[]
+      }
+      get_waste_statistics: {
+        Args: {
+          end_date?: string
+          restaurant_id_param: string
+          start_date?: string
+        }
+        Returns: {
+          daily_waste_trend: Json
+          most_wasted_item: string
+          most_wasted_item_cost: number
+          total_items_wasted: number
+          total_waste_cost: number
+          waste_by_category: Json
+          waste_by_reason: Json
         }[]
       }
       is_2fa_locked: {

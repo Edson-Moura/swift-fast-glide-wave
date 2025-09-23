@@ -15,6 +15,7 @@ import MenuManagement from "./pages/MenuManagement";
 import WasteManagement from "./pages/WasteManagement";
 import ChainManagement from "./pages/ChainManagement";
 import Pricing from "./pages/Pricing";
+import DemandForecast from "./pages/DemandForecast";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/inventory-management" element={<InventoryManagement />} />
           <Route path="/menu-management" element={<MenuManagement />} />
           <Route path="/waste-management" element={<WasteManagement />} />
+          <Route path="/demand-forecast" element={<DemandForecast />} />
           <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

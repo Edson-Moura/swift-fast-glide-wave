@@ -5,7 +5,7 @@ import { useRestaurant } from '@/hooks/useRestaurant';
 import { useSubscription } from '@/hooks/useSubscription';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, LogOut, Users, ChefHat, Package, BarChart3, Settings, DollarSign, Building2, MenuIcon, Network, Shield } from 'lucide-react';
+import { Loader2, LogOut, Users, ChefHat, Package, BarChart3, Settings, DollarSign, Building2, MenuIcon, Network, Shield, TrendingUp } from 'lucide-react';
 import MobileNav from '@/components/ui/mobile-nav';
 import SimpleCard from '@/components/ui/simple-card';
 import LoadingScreen from '@/components/ui/loading-screen';
@@ -190,6 +190,20 @@ const Index = () => {
                 onButtonClick={() => {
                   if (['admin', 'manager'].includes(userRole || '')) {
                     navigate('/price-management');
+                  }
+                }}
+              />
+
+              <SimpleCard
+                icon={TrendingUp}
+                title="Análise de Demanda"
+                description="Previsões inteligentes de vendas"
+                details="IA analisa padrões históricos para prever demanda e otimizar compras, evitando faltas e excessos."
+                buttonText={['admin', 'manager'].includes(userRole || '') ? 'Ver Previsões' : 'Sem Permissão'}
+                buttonDisabled={!['admin', 'manager'].includes(userRole || '')}
+                onButtonClick={() => {
+                  if (['admin', 'manager'].includes(userRole || '')) {
+                    navigate('/demand-forecast');
                   }
                 }}
               />

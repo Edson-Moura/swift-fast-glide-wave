@@ -16,6 +16,7 @@ import WasteManagement from "./pages/WasteManagement";
 import ChainManagement from "./pages/ChainManagement";
 import Pricing from "./pages/Pricing";
 import DemandForecast from "./pages/DemandForecast";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/waste-management" element={<WasteManagement />} />
           <Route path="/demand-forecast" element={<DemandForecast />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/support" element={<Support />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

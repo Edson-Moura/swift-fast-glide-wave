@@ -5,7 +5,7 @@ import { useRestaurant } from '@/hooks/useRestaurant';
 import { useSubscription } from '@/hooks/useSubscription';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, LogOut, Users, ChefHat, Package, BarChart3, Settings, DollarSign, Building2, MenuIcon, Network, Shield, TrendingUp } from 'lucide-react';
+import { Loader2, LogOut, Users, ChefHat, Package, BarChart3, Settings, DollarSign, Building2, MenuIcon, Network, Shield, TrendingUp, HelpCircle } from 'lucide-react';
 import MobileNav from '@/components/ui/mobile-nav';
 import SimpleCard from '@/components/ui/simple-card';
 import LoadingScreen from '@/components/ui/loading-screen';
@@ -264,6 +264,16 @@ const Index = () => {
                 }}
               />
 
+              <SimpleCard
+                icon={HelpCircle}
+                title="Suporte ao Cliente"
+                description="Central de ajuda e suporte"
+                details="Acesse FAQs, tutoriais em vídeo, guias passo a passo e entre em contato com nossa equipe de suporte especializada."
+                buttonText="Acessar Suporte"
+                buttonDisabled={false}
+                onButtonClick={() => navigate('/support')}
+              />
+
             </div>
 
             {/* Quick Actions */}
@@ -319,6 +329,21 @@ const Index = () => {
                         <div className="font-medium text-base">Planos e Preços</div>
                         <div className="text-sm text-muted-foreground mt-1">
                           Veja nossos planos e gerencie sua assinatura
+                        </div>
+                      </div>
+                    </div>
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start h-auto p-4 sm:p-5"
+                    onClick={() => navigate('/support')}
+                  >
+                    <div className="text-left flex items-center space-x-3">
+                      <HelpCircle className="h-5 w-5 shrink-0" />
+                      <div>
+                        <div className="font-medium text-base">Central de Suporte</div>
+                        <div className="text-sm text-muted-foreground mt-1">
+                          Acesse FAQs, tutoriais e entre em contato conosco
                         </div>
                       </div>
                     </div>
